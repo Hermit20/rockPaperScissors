@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function getComputerChoice(){
+            const randNum = Math.random()
+            if(randNum <= 0.3){
+                return "rock"
+            }
+            else if(randNum <= 0.6){
+                return "paper"
+            }
+            else{
+                return "scissors"
+            }
+        }
+
+        function getHumanChoice(){
+            let choice = prompt("Choose one of 'Rock','Paper',or 'Scissors'")
+
+            return choice;
+        }
+        
+        console.log(getHumanChoice())
+    </script>
+</body>
+</html>
