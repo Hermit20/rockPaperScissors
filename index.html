@@ -22,7 +22,7 @@
 
         function getHumanChoice(){
             let choice = prompt("Choose one of 'Rock','Paper',or 'Scissors'")
-
+            choice = choice.toLowerCase();
             return choice;
         }
         
@@ -37,7 +37,7 @@
             computerScore += 1
         }
         function playRound(humanChoice, computerChoice){
-            humanChoice = humanChoice.toLowerCase();
+            
             
             if(humanChoice === computerChoice){
                 return `You tied! you both chose ${humanChoice}`
@@ -70,19 +70,13 @@
             }
 
             if(humanScore > computerScore){
-                console.log(humanScore)
-                console.log(computerScore)
-                return "You won! Congragulations!"
+                return `You won! ${humanScore} to ${computerScore}, congragulations!`
             }
             else if(humanScore < computerScore){
-                console.log(humanScore)
-                console.log(computerScore)
-                return "You lost! Thats okay, Try again!"
+                return `You lost! ${humanScore} to ${computerScore}, thats okay, Try again!`
             }
             else{
-                console.log(humanScore)
-                console.log(computerScore)
-                return "You both tied! Try again!"
+                return `You both tied! ${humanScore} to ${computerScore}, try again!`
             }
 
         }
