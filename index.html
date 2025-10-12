@@ -26,7 +26,47 @@
             return choice;
         }
         
-        console.log(getHumanChoice())
+        let humanScore = 0
+        let computerScore = 0
+        
+        function humanWon(){
+            humanScore += 1
+        }
+
+        function computerWon(){
+            computerScore += 1
+        }
+        function playRound(humanChoice, computerChoice){
+            humanChoice = humanChoice.toLowerCase();
+            
+            if(humanChoice === computerChoice){
+                return `You tied! you both chose ${humanChoice}`
+            }
+            else if(humanChoice === 'rock' && computerChoice === 'scissors'){
+                humanWon()
+                return `You won! you chose ${humanChoice} and the computer chose ${computerChoice}`
+            }
+            else if(humanChoice === 'paper' && computerChoice === 'rock'){
+                humanWon()
+                return `You won! you chose ${humanChoice} and the computer chose ${computerChoice}`
+            }
+            else if(humanChoice === 'scissors' && computerChoice === 'paper'){
+                humanWon()
+                return `You won! you chose ${humanChoice} and the computer chose ${computerChoice}`
+            }
+            else{
+                computerWon()
+                return `You lose! you chose ${humanChoice} and the computer chose ${computerChoice}`
+            }
+        }
+
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice();
+
+        console.log(playRound(humanSelection, computerSelection))
+
+        console.log(humanScore)
+        console.log(computerScore)
     </script>
 </body>
 </html>
