@@ -60,11 +60,34 @@
             }
         }
 
-        const humanSelection = getHumanChoice();
-        const computerSelection = getComputerChoice();
+        
+        function playGame(){
 
-        console.log(playRound(humanSelection, computerSelection))
+            for(let i = 0; i < 5; i++){
+                const humanSelection = getHumanChoice();
+                const computerSelection = getComputerChoice();
+                console.log(playRound(humanSelection, computerSelection))
+            }
 
+            if(humanScore > computerScore){
+                console.log(humanScore)
+                console.log(computerScore)
+                return "You won! Congragulations!"
+            }
+            else if(humanScore < computerScore){
+                console.log(humanScore)
+                console.log(computerScore)
+                return "You lost! Thats okay, Try again!"
+            }
+            else{
+                console.log(humanScore)
+                console.log(computerScore)
+                return "You both tied! Try again!"
+            }
+
+        }
+
+        console.log(playGame())
         console.log(humanScore)
         console.log(computerScore)
     </script>
