@@ -1,3 +1,4 @@
+// Game Logic
 function getComputerChoice(){
             const randNum = Math.random()
             if(randNum <= 0.3){
@@ -61,18 +62,98 @@ function playGame(){
     console.log(playRound(humanSelection, computerSelection))
     
 
-    if(humanScore > computerScore){
+}
+
+function checkForWinner(){
+    if(humanScore === 5){
         return `You won! ${humanScore} to ${computerScore}, congragulations!`
     }
-    else if(humanScore < computerScore){
+    else if(computerScore === 5){
        return `You lost! ${humanScore} to ${computerScore}, thats okay, Try again!`
     }
     else{
-        return `You both tied! ${humanScore} to ${computerScore}, try again!`
+        return `Still Playing`
     }
+}
+
+function reset(){
+    humanScore = 0;
+    computerScore = 0;
+
+    const display = document.querySelector(".container")
+    while (display.firstChild) {
+         display.removeChild(display.firstChild);
+    }
+    
+    const playerScore = document.querySelector("#player")
+    playerScore.textContent = 0
+    const cpuScore = document.querySelector("#cpu")
+    cpuScore.textContent = 0
+
 
 }
 
-console.log(playGame())
-console.log(humanScore)
-console.log(computerScore)
+
+// console.log(playGame())
+// console.log(humanScore)
+// console.log(computerScore)
+
+
+// Event Listners 
+
+const buttons = document.querySelectorAll("button.choice")
+const test = document.querySelector("#rock")
+
+
+buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+        const container = document.createElement("div")
+        const temp = playRound(button.id,getComputerChoice())
+        container.textContent = temp
+        
+        
+        if(temp.slice(0,8) === 'You won!'){
+            container.classList.toggle("won")
+        }
+        else if(temp.slice(0,8) === `You lose`){
+            container.classList.toggle("lost")
+        }
+        else if(temp.slice(0,8) === `You tied`){
+            container.classList.toggle("tied")
+        }
+        
+        const display = document.querySelector(".container")
+    
+        display.appendChild(container)
+      
+        const playerScore = document.querySelector("#player")
+        playerScore.textContent = humanScore
+        const cpuScore = document.querySelector("#cpu")
+        cpuScore.textContent = computerScore
+        
+        if(checkForWinner() != `Still Playing`){
+            const winner = document.createElement("div")
+            const body = document.querySelector("body")
+
+            const temp = checkForWinner()
+            winner.textContent = temp
+            if(temp.slice(0,8) === 'You won!'){
+                winner.classList.toggle("winner")
+            }
+            else{
+                winner.classList.toggle("loser")
+            }
+            
+            body.appendChild(winner)
+            reset()
+            
+        }
+
+    })
+})
+
+
+
+
+
+
