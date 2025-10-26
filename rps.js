@@ -93,6 +93,61 @@ function reset(){
 
 }
 
+function winnerModal(){
+    if(checkForWinner() != `Still Playing`){
+        // Get the modal
+        const modal = document.querySelector("#myModal");
+        // Get Modeal content
+        const modalContent = document.querySelector(".modal-content")
+        // Get the <span> element that closes the modal
+        const span = document.getElementsByClassName("close")[0];
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+        }
+
+        const temp = checkForWinner()
+        const textContent = document.createElement("p")
+        textContent.textContent = temp;
+        if(modalContent.lastChild.nodeName === "P"){
+            modalContent.removeChild(modalContent.lastChild);
+        }
+        modalContent.appendChild(textContent)
+
+        if(temp.slice(0,8) === 'You won!'){
+                if(!modalContent.classList.contains("winner")){
+                    modalContent.classList.toggle("winner")
+                }
+                if(modalContent.classList.contains("loser")){
+                    modalContent.classList.toggle("loser")
+                }
+        }
+        else{
+                if(!modalContent.classList.contains("loser")){
+                    modalContent.classList.toggle("loser")
+                }
+                else if(modalContent.classList.contains("winner")){
+                    modalContent.classList.toggle("winner")
+                }
+        }
+            
+        modal.style.display = "block";
+        reset()
+            
+    }
+    
+
+    
+
+    
+}
+
 
 // console.log(playGame())
 // console.log(humanScore)
@@ -130,24 +185,8 @@ buttons.forEach((button) => {
         playerScore.textContent = humanScore
         const cpuScore = document.querySelector("#cpu")
         cpuScore.textContent = computerScore
+        winnerModal()
         
-        if(checkForWinner() != `Still Playing`){
-            const winner = document.createElement("div")
-            const body = document.querySelector("body")
-
-            const temp = checkForWinner()
-            winner.textContent = temp
-            if(temp.slice(0,8) === 'You won!'){
-                winner.classList.toggle("winner")
-            }
-            else{
-                winner.classList.toggle("loser")
-            }
-            
-            body.appendChild(winner)
-            reset()
-            
-        }
 
     })
 })
