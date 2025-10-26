@@ -13,6 +13,36 @@ body{
     background-color: black;
     gap: 150px
 }
+
+h1{
+    color: red;
+}
+
+button {
+  background-color: #48abe0;
+  color: white;
+  border: solid 10px #0c8cd1;
+  padding: 5px;
+  font-size: 20px;
+  height: 130px;
+  width: 130px;
+  box-shadow: 0 2px 4px darkslategray;
+  
+
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+button:hover {
+ background-color: #65b9e6;
+}
+
+button:active {
+ box-shadow: 0 0 2px darkslategray;
+ transform: translateY(2px);
+}
+
 .container{
     background-color: black;
     border: 5px white solid;
@@ -23,9 +53,7 @@ body{
     border-radius: 10px;
 }
 
-h1{
-    color: red;
-}
+
 
 .won,.tied,.lost{
     height: 30px;
@@ -48,6 +76,7 @@ h1{
     background-color: lightyellow;
     color: darkgoldenrod;
 }
+
 
 .buttons{
     margin-top: 50px;
@@ -76,30 +105,6 @@ h1{
     color: black;
 }
 
-button {
-  background-color: #48abe0;
-  color: white;
-  border: solid 10px #0c8cd1;
-  padding: 5px;
-  font-size: 20px;
-  height: 130px;
-  width: 130px;
-  box-shadow: 0 2px 4px darkslategray;
-  
-
-  border-radius: 50%;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-button:hover {
- background-color: #65b9e6;
-}
-
-button:active {
- box-shadow: 0 0 2px darkslategray;
- transform: translateY(2px);
-}
 
 .winner{
     background-color: lightgreen;

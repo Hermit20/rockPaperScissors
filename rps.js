@@ -1,4 +1,9 @@
 // Game Logic
+
+let humanScore = 0
+let computerScore = 0
+
+
 function getComputerChoice(){
             const randNum = Math.random()
             if(randNum <= 0.3){
@@ -12,15 +17,7 @@ function getComputerChoice(){
             }
 }
 
-function getHumanChoice(){
-            let choice = prompt("Choose one of 'Rock','Paper',or 'Scissors'")
-            choice = choice.toLowerCase();
-            return choice;
-}
-        
-let humanScore = 0
-let computerScore = 0
-        
+               
 function humanWon(){
             humanScore += 1
 }
@@ -54,15 +51,7 @@ function playRound(humanChoice, computerChoice){
 }
 
         
-function playGame(){
 
-
-    const humanSelection = getHumanChoice();
-    const computerSelection = getComputerChoice();
-    console.log(playRound(humanSelection, computerSelection))
-    
-
-}
 
 function checkForWinner(){
     if(humanScore === 5){
@@ -149,12 +138,9 @@ function winnerModal(){
 }
 
 
-// console.log(playGame())
-// console.log(humanScore)
-// console.log(computerScore)
 
 
-// Event Listners 
+// Event Listner
 
 const buttons = document.querySelectorAll("button.choice")
 const test = document.querySelector("#rock")
