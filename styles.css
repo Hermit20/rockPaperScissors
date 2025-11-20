@@ -11,7 +11,7 @@ body{
     align-items: center;
     flex-direction: column;
     background-color: black;
-    gap: 150px
+
 }
 
 h1{
@@ -47,7 +47,7 @@ button:active {
     background-color: black;
     border: 5px white solid;
     width: 600px; /* Define the width */
-    height: 200px; /* Define the height */
+    height: 400px; /* Define the height */
     margin: 20px; /* Add some margin for spacing */
     overflow: auto;
     border-radius: 10px;
